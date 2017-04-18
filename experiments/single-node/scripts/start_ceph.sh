@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ex
 
 cp ceph.conf /etc/ceph/ceph_extra.conf
 
