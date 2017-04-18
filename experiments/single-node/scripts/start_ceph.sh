@@ -1,6 +1,10 @@
 #!/bin/bash
 
-OSD=1 MON=1 MDS=1 ../src/vstart.sh -d -n -x
+cp ceph.conf /etc/ceph/ceph_extra.conf
+
+./singlenode &
+
+sleep 120
 
 # TODO ensure that ceph is up and running OK
 

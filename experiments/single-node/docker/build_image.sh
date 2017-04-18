@@ -1,13 +1,15 @@
 #!/bin/bash
 set -ex
 
-source <(wget -qO- https://raw.githubusercontent.com/systemslab/docker-cephdev/master/aliases.sh)
+git clone --recursive https://github.com/leosinclairjr/ceph --branch wip_dmclock_clients --single-branch ceph
+
+cd ceph
 
 docker pull cephbuilder/ceph:kraken
 
+source <(wget -qO- https://raw.githubusercontent.com/systemslab/docker-cephdev/master/aliases.sh)
+
 dmake \
-  -e SHA1_OR_REF="wip_dmclock_clients" \
-  -e GIT_URL="https://github.com/leosinclairjr/ceph.git" \
   -e BUILD_THREADS=`grep processor /proc/cpuinfo | wc -l` \
   -e CONFIGURE_FLAGS="-DWITH_TESTS=OFF" \
   -e RECONFIGURE="true" \
