@@ -1,6 +1,10 @@
 #!/bin/bash
 set -ex
 
+if [ -d ceph ] ; then
+  sudo rm -rf ceph
+fi
+
 git clone \
   --recursive https://github.com/leosinclairjr/ceph \
   --branch wip_dmclock_clients \
