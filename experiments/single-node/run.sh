@@ -11,4 +11,4 @@ docker run --rm \
   --device /dev/fuse \
   -v /dev:/dev \
   ivotron/ceph:dmclock \
-    -c "run /root/scripts/run_experiment.sh"
+    -c "/root/scripts/run_experiment.sh"

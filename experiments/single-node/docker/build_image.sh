@@ -22,6 +22,5 @@ docker pull cephbuilder/ceph:kraken
 dmake \
   -e CONFIGURE_FLAGS="-DWITH_TESTS=OFF -DCMAKE_BUILD_TYPE=Release" \
   -e RECONFIGURE="true" \
-  -e CLEAN="true" \
   -e BASE_DAEMON_IMAGE="ceph/daemon:tag-build-master-kraken-ubuntu-16.04" \
   cephbuilder/ceph:kraken build-cmake
