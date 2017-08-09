@@ -1,0 +1,3 @@
+[submodule "experiments/single-node/src/adios2"]
+	path = experiments/single-node/src/adios2
+	url = https://github.com/ornladios/ADIOS2
