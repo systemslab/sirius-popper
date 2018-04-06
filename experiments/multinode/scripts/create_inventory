@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+import yaml
+import sys
+
+envfile = sys.argv[1]
+outdir = sys.argv[2]
+
+with open(envfile, 'r') as f:
+    cc_env = yaml.load(f)
+
+node_ips = [h.extra['gateway'] for h in cc_env['rsc']['compute']]
+
+# get MON_IP
+with open('{}/monitor', 'w') as f:
+    f.write(node_ips[0] + '\n')
+
+# all hosts
+with open('{}/machines', 'w') as f:
+    f.write(node_ips[1:] + '\n')
+
+# get CIDR
+with open('{}/cidr', 'w') as f:
+    f.write(cc_env['provider_net']['cidr'] + '\n')

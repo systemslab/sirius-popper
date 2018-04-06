@@ -1,0 +1,8 @@
+provider:
+  type: chameleonbaremetal
+  image_name: CC-Ubuntu14.04-Docker
+  subnet: {name: shared-subnet1}
+  walltime: '00:30:00'
+resources:
+  storage:
+    compute: 1

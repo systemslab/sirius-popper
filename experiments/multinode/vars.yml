@@ -1,0 +1,12 @@
+repetitions: 5
+remote_results_path: "/tmp/results"
+
+benchmarks:
+- name: radosbench
+  image: ivotron/ceph-daemon:luminous
+  parameters:
+    CYCLES: [1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+  volumes:
+  - '{{ remote_results_path }}:/results'
+  fetch:
+  - '{{ remote_results_path }}'
